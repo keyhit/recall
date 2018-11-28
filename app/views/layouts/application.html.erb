@@ -10,9 +10,11 @@
   </head>
 
   <body>
-    <%= current_user.name if current_user %>
-    <%= link_to 'logout', loguot_path if current_user %>
-    <%= link_to 'log in', login_path if current_user.nil? %>
+    <ul>
+      <%= render template: 'layouts/logout_navigation' if current_user %>
+      <%= render template: 'layouts/login_navigation' if current_user.nil? %>
+      <%= render template: 'layouts/user_navigation' if current_user %>
+    </ul>
     <%= yield %>
   </body>
 </html>

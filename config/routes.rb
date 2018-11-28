@@ -9,11 +9,11 @@ Rails.application.routes.draw do
     end
   end
   resources :components
-  get 'session/login', to: 'sessions#login', as: 'login'
-  post 'session/create', to: 'sessions#create', as: 'create_session'
-  get 'session/logout', to: 'sessions#logout', as: 'loguot'
+  get 'session/login', to: 'sessions#login', as: 'session_login'
+  post 'session/create', to: 'sessions#create', as: 'session_create'
+  get 'session/logout', to: 'sessions#logout', as: 'session_loguot'
 
-  root 'sessions#login'
+  root 'users#show'
       # resources :stages
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

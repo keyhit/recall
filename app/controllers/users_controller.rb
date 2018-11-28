@@ -35,13 +35,11 @@ class UsersController < ApplicationController
           format.html { redirect_to @user, notice: 'User was successfully created.' }
           # format.json { render :show, status: :created, location: @user }
         else
-          # flash[:errors] = 'Error user saving'
           format.html { render :new }
           # format.json { render json: @user.errors, status: :unprocessable_entity }
         end
       else
         format.html { render :new }
-        # @user.errors.count, "Passwords is not identic"
         
       end
     end
@@ -74,7 +72,7 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = User.find(session[:user_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
