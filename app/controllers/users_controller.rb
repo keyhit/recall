@@ -27,12 +27,22 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
+      # binding.pry
+      if params[:password] == params[:password_confirmation]
+        if @user.save
+          session[:user_id] = @user.id
+          # flash[:success] = 'Successfully Logged In!'
+          format.html { redirect_to @user, notice: 'User was successfully created.' }
+          # format.json { render :show, status: :created, location: @user }
+        else
+          # flash[:errors] = 'Error user saving'
+          format.html { render :new }
+          # format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       else
         format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        # @user.errors.count, "Passwords is not identic"
+        
       end
     end
   end
@@ -69,6 +79,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :password_digest)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation)
     end
 end
