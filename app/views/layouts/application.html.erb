@@ -11,6 +11,11 @@
 
   <body>
     <ul>
+      <li><%= link_to 'About',
+         'https://github.com/keyhit/recall',
+          target: '_blank',
+          title: 'Project at github' %>
+     </li>
       <%= render template: 'layouts/logout_navigation' if current_user %>
       <%= render template: 'layouts/login_navigation' if current_user.nil? %>
       <%= render template: 'layouts/user_navigation' if current_user %>

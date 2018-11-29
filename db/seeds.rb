@@ -8,6 +8,7 @@
 
 user1 = User.create(name: 'Slava1', email: '1@1', password: '1')
 user2 = User.create(name: 'Slava2', email: '2@2', password: '2')
+user3 = User.create(name: 'Slava3', email: '3@3', password: '3')
 
 project1 = Project.create(
   name: 'Project1_name',
@@ -18,4 +19,6 @@ project3 = Project.create(name: 'Project3_name', description: 'Project_3 descrip
 user1.projects << project1
 user1.projects << project2
 user2.projects << project3
-
+user3.projects << project1
+user3.projects << project2
+user3.projects << project3
