@@ -12,10 +12,22 @@ user3 = User.create(name: 'Slava3', email: '3@3', password: '3')
 
 project1 = Project.create(
   name: 'Project1_name',
-  description: 'Project_1 description')
-  
-project2 = Project.create(name: 'Project2_name', description: 'Project_2 description')
-project3 = Project.create(name: 'Project3_name', description: 'Project_3 description')
+  description: 'Project_1 description',
+  admin_id: user1.id
+)
+
+project2 = Project.create(
+  name: 'Project2_name',
+  description: 'Project_2 description',
+  admin_id: user1.id
+)
+
+project3 = Project.create(
+  name: 'Project3_name',
+  description: 'Project_3 description',
+  admin_id: user2.id
+)
+
 user1.projects << project1
 user1.projects << project2
 user2.projects << project3
