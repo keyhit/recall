@@ -81,7 +81,6 @@ class ProjectsController < ApplicationController
         format.html { redirect_to user_project_path(@user, @project), notice: 'Error adding a collaborant!' }
       end
     end
-
   end
 
   def drop_collaborator

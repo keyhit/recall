@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :require_login, except: %i[login create new]
+  before_action :require_login
 
   private
 
