@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   get 'session/logout', to: 'sessions#logout', as: 'session_loguot'
 
   root 'users#show'
-      # resources :stages
+  # resources :stages
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

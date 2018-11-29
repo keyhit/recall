@@ -5,3 +5,17 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+user1 = User.create(name: 'Slava1', email: '1@1', password: '1')
+user2 = User.create(name: 'Slava2', email: '2@2', password: '2')
+
+project1 = Project.create(
+  name: 'Project1_name',
+  description: 'Project_1 description')
+  
+project2 = Project.create(name: 'Project2_name', description: 'Project_2 description')
+project3 = Project.create(name: 'Project3_name', description: 'Project_3 description')
+user1.projects << project1
+user1.projects << project2
+user2.projects << project3
+
