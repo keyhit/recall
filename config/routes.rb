@@ -13,6 +13,14 @@ Rails.application.routes.draw do
   post 'session/create', to: 'sessions#create', as: 'session_create'
   get 'session/logout', to: 'sessions#logout', as: 'session_loguot'
 
+  post 'add/collaborator/:project_id',
+       to: 'projects#add_collaborator',
+       as: 'new_collaborator'
+
+  post 'drop/:project_id/collaborator/:user_id',
+       to: 'projects#drop_collaborator',
+       as: 'drop_collaborator'
+
   root 'users#show'
   # resources :stages
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

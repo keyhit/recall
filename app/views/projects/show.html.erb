@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @project.name %>
@@ -12,3 +10,29 @@
 
 <%= link_to 'Edit', edit_user_project_path(current_user, @project) %> |
 <%= link_to 'Back', user_projects_path(current_user) %>
+<br>
+<h2>Collaborators</h2>
+<table>
+  <tr>
+    <th> Colaborator name</th>
+    <th> Colaborator email</th>
+    <th> Remove colaborator email</th>
+  </tr>
+    <% @project_users.map do |user| %>
+  <tr>
+      <td><%=  user.name %></td>
+      <td><%=  user.email %></td>
+      <td><%=  link_to 'Drop colaborator', drop_collaborator_path(@project.id, user.id), method: :post  if @project_users.count > 1%></td>
+  </tr>
+    <% end %>
+</table>
+<p>
+  <strong>Add colaborator:</strong>
+    <%= form_with url: new_collaborator_path(@project.id), local: true do |form|%>
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.email_field :email %>
+      <%= form.submit 'Add user' %>
+    </div>
+    <% end %>
+</p>
