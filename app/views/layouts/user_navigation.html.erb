@@ -1,6 +1,29 @@
-<li><%= "You here as: #{current_user.name}" if current_user %></li>
-<li><%= link_to 'Home', user_path(current_user) %></li>
-<li><%= link_to 'Projects', user_projects_path(current_user) %></li>
-<li><%= link_to 'Parts' %></li>
-<li><%= link_to 'Tasks' %></li>
-<li><%= link_to 'Comments' %></li>
+<li class="nav-item active">
+  <%= link_to "You here as: #{current_user.name}",
+    user_url(current_user), class: "nav-link" %>
+</li>
+<li class="nav-item active">
+  <%= link_to 'My profile',
+    user_url(current_user), class: "nav-link" %>
+</li>
+<li class="nav-item active">
+  <%= link_to 'Home',
+    root_path(current_user), class: "nav-link" %>
+</li>
+<li class="nav-item active">
+  <%= link_to 'Projects',
+    user_projects_path(current_user), class: "nav-link" %>
+</li>
+  <!-- /// -->
+<li class="nav-item active">
+  <%= link_to 'Parts',
+    user_projects_path(current_user), class: "nav-link" %>
+</li>
+<li class="nav-item active">
+  <%= link_to 'Tasks',
+    user_projects_path(current_user), class: "nav-link" %>
+</li>
+<li class="nav-item active">
+  <%= link_to 'Comments',
+    user_projects_path(current_user), class: "nav-link" %>
+</li>

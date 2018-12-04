@@ -1,0 +1,16 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active"><%= link_to 'About',
+         'https://github.com/keyhit/recall',
+          target: '_blank',
+          title: 'Project at github',
+          class: 'nav-link' %>
+     </li>
+      <%= render template: 'layouts/logout_navigation' if current_user %>
+      <%= render template: 'layouts/login_navigation' if current_user.nil? %>
+      <%= render template: 'layouts/user_navigation' if current_user %>
+      <li class="nav-item active"><p id="notice"><%= notice %></p></li>
+    </ul>
+  </div>
+</nav>

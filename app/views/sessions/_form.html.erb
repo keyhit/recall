@@ -1,6 +1,5 @@
 <%= form_with url:  session_create_path, local: true do |form| %>
 
-
   <div class="field">
     <%= form.label :email %>
     <%= form.email_field :email %>
@@ -12,6 +11,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Log in' %>
   </div>
 <% end %>

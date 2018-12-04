@@ -8,19 +8,9 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <ul>
-      <li><%= link_to 'About',
-         'https://github.com/keyhit/recall',
-          target: '_blank',
-          title: 'Project at github' %>
-     </li>
-      <%= render template: 'layouts/logout_navigation' if current_user %>
-      <%= render template: 'layouts/login_navigation' if current_user.nil? %>
-      <%= render template: 'layouts/user_navigation' if current_user %>
-    </ul>
-    <p id="notice"><%= notice %></p>
+    <%= render template: 'layouts/header' %>
     <%= yield %>
+    <%= render template:'layouts/footer' %>
   </body>
 </html>

@@ -1,3 +1,6 @@
 class Comment < ApplicationRecord
-  belogs_to :task
+  belongs_to :user
+  belongs_to :project
+  belongs_to :part
+  belongs_to :task
 end

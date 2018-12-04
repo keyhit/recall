@@ -3,7 +3,7 @@ class CreateProjects < ActiveRecord::Migration[5.2]
     create_table :projects do |t|
       t.string :name
       t.string :description
-      t.integer :admin_id
+      t.references :user, foreign_key: true
 
       t.timestamps
     end

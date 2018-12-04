@@ -1,38 +1,96 @@
-<p>
-  <strong>Name:</strong>
-  <%= @project.name %>
-</p>
+  <div class="row">
+    <div class="col">
+      <p>
+        <strong>Name:</strong>
+        <%= @project.name %>
+      </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
-</p>
+      <p>
+        <strong>Description:</strong>
+        <%= @project.description %>
+      </p>
 
-<%= link_to 'Edit', edit_user_project_path(current_user, @project) %> |
-<%= link_to 'Back', user_projects_path(current_user) %>
-<br>
-<h2>Collaborators</h2>
-<table>
-  <tr>
-    <th> Colaborator name</th>
-    <th> Colaborator email</th>
-    <th> Remove colaborator email</th>
-  </tr>
-    <% @project_users.map do |user| %>
-  <tr>
-      <td><%=  user.name %></td>
-      <td><%=  user.email %></td>
-      <td><%=  link_to 'Drop colaborator', drop_collaborator_path(@project.id, user.id), method: :post  if @project_users.count > 1%></td>
-  </tr>
-    <% end %>
-</table>
-<p>
-  <strong>Add colaborator:</strong>
-    <%= form_with url: new_collaborator_path(@project.id), local: true do |form|%>
-    <div class="field">
-      <%= form.label :email %>
-      <%= form.email_field :email %>
-      <%= form.submit 'Add user' %>
+      <%= link_to 'Edit', edit_user_project_path(current_user, @project) %> |
+      <%= link_to 'Back', user_projects_path(current_user) %>
+      <br>
+
     </div>
-    <% end %>
-</p>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <h2>Collaborators</h2>
+      <table>
+        <tr>
+          <th> Name</th>
+          <th> Email</th>
+          <th> Action</th>
+        </tr>
+          <% @project_users.map do |project_user| %>
+        <tr>
+            <td><%= project_user.name %></td>
+            <td><%= project_user.email %></td>
+            <td>
+              <%= link_to 'Drop colaborator',
+                drop_collaborator_path(project_user.id, @project.id), method: :post %>
+            </td>
+        </tr>
+          <% end %>
+      </table>
+      <p>
+        <strong>Add colaborator:</strong>
+          <%= form_with url: new_collaborator_path(@project.id), local: true do |form|%>
+          <div class="field">
+            <%= form.label :email %>
+            <%= form.email_field :email %>
+            <%= form.submit 'Add user' %>
+          </div>
+          <% end %>
+      </p>
+    </div>
+    <div class="col">
+      <table>
+        <caption><b>Projects parts</b></caption>
+        <tr>
+        <th>Name</th>
+        <th>Description</th>
+        </tr>
+        <% @project.parts.each do |project_part| %>
+        <tr>
+            <td><%= project_part.name %></td>
+            <td><%= project_part.description %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="col">
+      <table>
+        <caption><b>Projects tasks</b></caption>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+        <% @project.tasks.each do |project_task_parts| %>
+        <tr>
+            <td><%= project_task_parts.name %></td>
+            <td><%= project_task_parts.description %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+    <div class="col">
+      <table>
+        <h3>Tasks</h3>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+        <% @project.comments.each do |project_task_parts_comment| %>
+        <tr>
+          <td><%= project_task_parts_comment.name %></td>
+          <td><%= project_task_parts_comment.description %></td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+  </div>

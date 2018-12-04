@@ -15,30 +15,36 @@ ActiveRecord::Schema.define(version: 2018_11_28_105157) do
   create_table "comments", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.integer "user_id"
+    t.integer "project_id"
+    t.integer "part_id"
+    t.integer "task_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "components", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.index ["part_id"], name: "index_comments_on_part_id"
+    t.index ["project_id"], name: "index_comments_on_project_id"
+    t.index ["task_id"], name: "index_comments_on_task_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "parts", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.integer "user_id"
+    t.integer "project_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_parts_on_project_id"
+    t.index ["user_id"], name: "index_parts_on_user_id"
   end
 
   create_table "projects", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "admin_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_projects_on_user_id"
   end
 
   create_table "projects_users", id: false, force: :cascade do |t|
@@ -56,8 +62,14 @@ ActiveRecord::Schema.define(version: 2018_11_28_105157) do
   create_table "tasks", force: :cascade do |t|
     t.string "name"
     t.string "description"
+    t.integer "user_id"
+    t.integer "project_id"
+    t.integer "part_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["part_id"], name: "index_tasks_on_part_id"
+    t.index ["project_id"], name: "index_tasks_on_project_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,4 +1,6 @@
 class Task < ApplicationRecord
-  belogs_to :component
-  has_many :comments
+  belongs_to :user
+  belongs_to :project
+  belongs_to :part
+  has_many :comments, dependent: :destroy
 end
