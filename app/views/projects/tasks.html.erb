@@ -1,0 +1,13 @@
+<h3>Tasks</h3>
+<% @project.tasks.each do |project_task_parts| %>
+  <hr>
+  <p>
+    <b><%= project_task_parts.name %></b>
+    <em><%= project_task_parts.description %></em>
+    </br>
+    <%= link_to 'Edit |' %>
+    <%= link_to 'Hide |' %>
+    <%= link_to 'Drop |' %>
+  </p>
+<% end %>
+<%= link_to 'New task' %>

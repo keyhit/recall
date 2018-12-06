@@ -1,0 +1,38 @@
+<p>
+  <strong>Name:</strong>
+  <%= @project.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
+<%= link_to 'Edit', edit_user_project_path(current_user, @project) %> |
+<%= link_to 'Back', user_projects_path(current_user) %>
+<h2>Collaborators</h2>
+<table>
+  <tr>
+    <th> Name</th>
+    <th> Email</th>
+    <th> Action</th>
+  </tr>
+    <% @project_users.map do |project_user| %>
+  <tr>
+      <td><%= project_user.name %></td>
+      <td><%= project_user.email %></td>
+      <td>
+        <%= link_to 'Drop colaborator',
+          drop_collaborator_path(project_user.id, @project.id), method: :post %>
+      </td>
+  </tr>
+    <% end %>
+</table>
+<p>
+  <strong>Add colaborator:</strong>
+    <%= bootstrap_form_with url: new_collaborator_path(@project.id), local: true do |form|%>
+    <div class="field">
+      <%= form.email_field :email %>
+      <%= form.submit 'Add user' %>
+    </div>
+    <% end %>
+</p>

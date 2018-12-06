@@ -49,6 +49,14 @@ project1_part1_task1 = Task.create(
   part_id: project1_part1.id
 )
 
+project1_part1_task2 = Task.create(
+  name: 'Name project1_part1_task2',
+  description: 'Description project1_part1_task2',
+  user_id: user1.id,
+  project_id: project1.id,
+  part_id: project1_part1.id
+)
+
 project1_part1_task1_commet1 = Comment.create(
   name: 'Name project1_part1_task1_comment1',
   description: 'Description project1_part1_task1_comment1',

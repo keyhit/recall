@@ -1,0 +1,13 @@
+<h3>Comments</h3>
+<% @project.comments.each do |project_task_parts_comment| %>
+<hr>
+  <p>
+    <b><%= project_task_parts_comment.name %></b>
+    <em><%= project_task_parts_comment.description %></em>
+    </br>
+    <%= link_to 'Edit |' %>
+    <%= link_to 'Hide |' %>
+    <%= link_to 'Drop |' %>
+  </p>
+<% end %>
+<%= link_to 'New comment' %>

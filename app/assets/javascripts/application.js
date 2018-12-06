@@ -15,3 +15,18 @@
 //= require turbolinks
 //= require jquery
 //= require_tree .
+$(document).ready(function(){
+    $('#tasks_part').hide()
+    $('#index_user_project_part_tasks').click(function(){
+        $('#all_tasks').hide()
+        $('#tasks_part').show()
+        
+    });
+
+        $('#show_all_tasks').click(function(){
+        $('#all_tasks').show()
+    });
+
+
+});
+

@@ -1,0 +1,43 @@
+<h3>Parts</h3>
+<!-- <button id="hide_all_tasks">Hide</button>
+<button id="show_all_tasks">Show</button> -->
+<% @project.parts.each do |part| %>
+<hr>
+<p>
+  <b><%= part.name %></b>
+  <b><%= %></b>
+
+  <em><%= part.description %></em>
+</br>
+<%= link_to 'Tasks |',
+  user_project_part_tasks_path(
+    current_user,
+    @project.id,
+    part.id),
+  id: "index_user_project_part_tasks",
+  remote: :true %>
+
+<%= link_to 'Edit |',
+  edit_user_project_part_path(
+    current_user.id,
+    part.user_id,
+    part.id
+  ),
+  id: 'edit_user_project_part',
+  remote: :true %>
+  <%= link_to 'Hide |' %>
+  <%= link_to 'Drop |',
+    user_project_part_path(
+      current_user.id,
+      part.user_id,
+      part.id
+    ),
+    method: :delete,
+    data: { confirm: 'Are you sure?' },
+    remote: :true %>
+</p>
+<% end %>
+<%= link_to 'New parts',
+  new_user_project_part_path(current_user, params[:id]),
+  id: 'new_user_project_part',
+  remote: :true %>

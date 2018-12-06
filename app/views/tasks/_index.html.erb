@@ -1,0 +1,37 @@
+<h3>Tasks</h3>
+<% @tasks.each do |task| %>
+  <hr>
+  <p>
+    <b><%= task.name %></b>
+    <em><%= task.description %></em>
+    </br>
+    <%= link_to 'Show',
+      user_project_part_task_path(
+      task.user_id,
+      task.project_id,
+      task.part_id,
+      task.id) %> |
+
+    <%= link_to 'Edit',
+      edit_user_project_part_task_path(
+      task.user_id,
+      task.project_id,
+      task.part_id,
+      task.id) %>
+
+    <%= link_to 'Destroy',
+      user_project_part_task_path(
+      task.user_id,
+      task.project_id,
+      task.part_id,
+      task.id),
+      method: :delete,
+      data: { confirm: 'Are you sure?' } %>
+  </p>
+    <% end %>
+
+<%= link_to 'New Task',
+  new_user_project_part_task_path(
+    current_user,
+    params[:project_id],
+    params[:part_id]) %>
