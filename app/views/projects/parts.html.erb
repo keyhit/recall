@@ -1,12 +1,9 @@
 <h3>Parts</h3>
-<!-- <button id="hide_all_tasks">Hide</button>
-<button id="show_all_tasks">Show</button> -->
 <% @project.parts.each do |part| %>
 <hr>
 <p>
   <b><%= part.name %></b>
-  <b><%= %></b>
-
+  <br>
   <em><%= part.description %></em>
 </br>
 <%= link_to 'Tasks |',

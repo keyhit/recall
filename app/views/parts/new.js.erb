@@ -1,1 +1,3 @@
-$('#new_user_project_part').after('<%= j render 'new' %>');
+$('#new_user_project_part').click(function(){
+    $('#new_part_modals').show('<%= j render 'new' %>');
+});

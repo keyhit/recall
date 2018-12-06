@@ -44,3 +44,44 @@ footer ul li {
   float: left;
   margin-left: 15px;
 }
+
+#modal{
+  position: absolute;
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 400px;
+  background-color: #f1f1f1;
+  z-index: 1;
+}
+#modal_header{
+  text-align: left;
+  padding-top: 2%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 1%;
+  text-align: center;
+}
+
+#modal_body{
+  padding-left: 5%;
+  padding-right: 5%;
+  text-align: left;
+}
+
+#modal_footter{
+  text-align: left;
+  padding-top: 1%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 2%;
+  text-align: center;
+}
+
+
+
+#new_part_modal{
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  background-color: red;
+}

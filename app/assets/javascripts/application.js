@@ -16,11 +16,21 @@
 //= require jquery
 //= require_tree .
 $(document).ready(function(){
+    $('#modal').hide()
+    $('#show_modal').click(function(){
+        $('#modal').show()
+    });
+
+    $('#close_modal').click(function(){
+        $('#modal').remove()
+    });
+
+
     $('#tasks_part').hide()
     $('#index_user_project_part_tasks').click(function(){
-        $('#all_tasks').hide()
-        $('#tasks_part').show()
-        
+        $('#all_tasks').hide(2000)
+        $('#tasks_part').show(2000)
+
     });
 
         $('#show_all_tasks').click(function(){
