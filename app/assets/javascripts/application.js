@@ -16,27 +16,24 @@
 //= require jquery
 //= require_tree .
 $(document).ready(function(){
-    $('#modal').hide()
-    $('#show_modal').click(function(){
-        $('#modal').show()
+    // $('#tasks_part').hide()
+    // $('#index_user_project_part_tasks').click(function(){
+    //     $('#all_tasks').hide(2000)
+    //     $('#tasks_part').show(2000)
+    // });
+    //     $('#show_all_tasks').click(function(){
+    //     $('#all_tasks').show()
+    // });
+
+    $('#modal, #bg_layer').hide()
+    $('#show_modal').click(function on(){
+        $('#modal, #bg_layer').fadeIn(500);
+        $('#bg_layer').animate({
+        opacity: 0.5
+        });
     });
 
-    $('#close_modal').click(function(){
-        $('#modal').remove()
+    $('#close_modal').click(function (){
+        $('#modal, #bg_layer').fadeOut(500);
     });
-
-
-    $('#tasks_part').hide()
-    $('#index_user_project_part_tasks').click(function(){
-        $('#all_tasks').hide(2000)
-        $('#tasks_part').show(2000)
-
-    });
-
-        $('#show_all_tasks').click(function(){
-        $('#all_tasks').show()
-    });
-
-
 });
-

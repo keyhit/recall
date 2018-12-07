@@ -11,25 +11,8 @@
      'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <a href="#" id="show_modal">Show modal</a>
+    <div id="bg_layer"></div>
     <%= render template: 'layouts/header' %>
-    <div id="modal">
-      <div id="modal_header">
-        <h5><b>modal header</b></h5>
-      </div>
-      <div id="modal_body">
-        <p>
-          Вышеописанная способность элементов изменять порядок наложения
-          друг на друга с помощью свойства z-index работает лишь в том
-          случае, если эти элементы существуют в одном контексте наложения.
-          Что это значит?
-        </p>
-      </div>
-      <div id="modal_footter">
-        modal footter
-        <a href="#" id="close_modal">Close modal</a>
-      </div>
-    </div>
     <%= yield %>
     <%= render template:'layouts/footer' %>
   </body>

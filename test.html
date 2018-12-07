@@ -1,0 +1,73 @@
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <style type="text/css">
+    
+    #modal{
+  position: absolute;
+  margin-left: 30%;
+  margin-right: 30%;
+  width: 400px;
+  background-color: #f1f1f1;
+  z-index: 1;
+}
+#modal_header{
+  text-align: left;
+  padding-top: 2%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 1%;
+  text-align: center;
+}
+
+#modal_body{
+  padding-left: 5%;
+  padding-right: 5%;
+  text-align: left;
+}
+
+#modal_footter{
+  text-align: left;
+  padding-top: 1%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 2%;
+  text-align: center;
+}
+
+  </style>
+</head>
+<body>
+
+<a href="#" id="show_modal">Show modal</a>
+  <div id="modal">
+  <div id="modal_header">
+    <h5><b>modal header</b></h5>
+  </div>
+  <div id="modal_body">
+    <p>
+      Вышеописанная способность элементов изменять порядок наложения
+      друг на друга с помощью свойства z-index работает лишь в том
+      случае, если эти элементы существуют в одном контексте наложения.
+      Что это значит?
+    </p>
+  </div>
+  <div id="modal_footter">
+    modal footter
+    <a href="#" id="close_modal">Close_modal</a>
+
+  </div>
+     <script type="text/javascript">
+        $(document).ready(function(){
+            $('#modal').hide()
+            $('#show_modal').click(function on(){
+                $('#modal').show();
+            });
+
+            $('#close_modal').click(function (){
+                $('#modal').hide();
+            });
+        });
+    </script>
+</div>
+
+</body>
